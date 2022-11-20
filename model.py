@@ -1,12 +1,11 @@
 # Simple Linear Regression
 
 '''
-This model predicts thet hickness and depth of the weld.
+This model predicts thet thickness and depth of the weld.
 '''
 
 # Importing the libraries
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -45,9 +44,10 @@ if __name__ == "__main__":
     result = regressor.evaluate(X_test, y_test, verbose=1)
 
     # Saving model using pickle
-    regressor.save('saved_model/my_model')
+    regressor.save('saved_model')
 
     # Loading model to compare the results
-    model = tf.keras.models.load_model('saved_model/my_model')
-    print(model.predict(sc.transform(np.array([[47, 139, 4.5, 80]]))))
+    model = tf.keras.models.load_model('saved_model')
+    pred = model.predict(sc.transform(np.array([[47, 139, 4.5, 80]])))
+    print(pred[0][0], pred[0][1])
     print(result)

@@ -27,12 +27,11 @@ def hello_world():
         ifp = float(request.values.get('if'))
         vwp = float(request.values.get('vw'))
         fpp = float(request.values.get('fp'))
+        model = tf.keras.models.load_model('saved_model')
+        res = model.predict(sc.transform(np.array([[iwp, ifp, vwp, fpp]])))
 
-        model = tf.keras.models.load_model('saved_model/my_model')
-        depth, width = model.predict(sc.transform(np.array([[iwp, ifp, vwp, fpp]])))
-
-
-    return "Depth: {depth}, Width: {width}"
+    result = "Depth: " + str(res[0][0]) +  " Width: " + str(res[0][1])
+    return result
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,4 +1,4 @@
-# flask-salary-predictor
+# flask-deep-predictor
 This is project predicts the thickness and depth of the weld.
 
 # Model
