@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css"/>
+  </head>
+  <body>
+    <h2>Predict class of text</h2>
+    <script type="text/javascript" src="static/script.js"></script>
+    <form action="http://localhost:5000/", method="POST", enctype="multipart/form-data">
+      <label for="uname">Enter a IW: </label>
+      <input type="text" id="iw" name="iw" />
+      <br>
+      <label for="uname">Enter a IF: </label>
+      <input type="text" id="if" name="if" />
+      <br>
+      <label for="uname">Enter a VW: </label>
+      <input type="text" id="vw" name="vw" />
+      <br>
+      <label for="uname">Enter a FP: </label>
+      <input type="text" id="fp" name="fp" />
+      <br>
+        <input type="submit" value="Submit" id="submit_button">
+        
+     </form>
+     
+  </body>
+</html>

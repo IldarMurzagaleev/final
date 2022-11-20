@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+   mlpr:
+       build: .
+       image: mlpr
+       restart: unless-stopped
+       expose:
+            - "5000"
+       deploy:
+            replicas: 1
+            
+
+   nginx-html:
+       image: nginx
+       container_name: nginx-htm
+       restart: unless-stopped
+       volumes:
+           - ./html:/usr/share/nginx/html
+       depends_on:
+           - mlpr
+       ports:
+           - "8080:80"
+
+
